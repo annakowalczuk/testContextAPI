@@ -1,33 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { THEME_MODE, ThemeContext, themes } from './theme-context';
+import ThemedSection from './ThemedSection/ThemedSection';
+import Checkbox from './Checkbox/Checkbox';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      <a
-          className="App-link"
-          href="http://thetechdevs.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          The Tech Devs
-        </a>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [theme, setTheme] = useState(THEME_MODE.DEFAULT);
+    const toggleTheme = () => {
+        const newTheme = (theme === 'dark')
+            ? 'light'
+            : 'dark';
+        setTheme(newTheme);
+    }
+    return (
+        <ThemeContext.Provider value={theme}>
+            <ThemedSection>
+                <span>Section with Theme Consumer</span>
+                <Checkbox toggleTheme={toggleTheme}/>
+            </ThemedSection>
+            <section className="Section">Section without Theme Consumer</section>
+        </ThemeContext.Provider>
+    );
 }
 
 export default App;
