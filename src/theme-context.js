@@ -1,4 +1,5 @@
 import React from 'react';
+
 export const themes = {
     light: {
         foreground: '#000000',
@@ -13,9 +14,11 @@ export const themes = {
 export const THEME_MODE = {
     DEFAULT: 'dark',
     DARK: 'dark',
-    LIGHT: 'light'
-}
+    LIGHT: 'light',
+};
 
-export const ThemeContext = React.createContext(
-    THEME_MODE.DARK // default value
-);
+export const ThemeContext = React.createContext({
+    theme: THEME_MODE.DARK, // default value
+    toggleTheme: () => {
+    },
+});

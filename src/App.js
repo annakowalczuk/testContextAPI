@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
-import { THEME_MODE, ThemeContext, themes } from './theme-context';
+import React from 'react';
 import ThemedSection from './ThemedSection/ThemedSection';
 import Checkbox from './Checkbox/Checkbox';
-import './App.css';
+import ThemeProvider from './ThemeProvider/ThemeProvider';
 
 const App = () => {
-    const [theme, setTheme] = useState(THEME_MODE.DEFAULT);
-    const toggleTheme = () => {
-        const newTheme = (theme === 'dark')
-            ? 'light'
-            : 'dark';
-        setTheme(newTheme);
-    }
+
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeProvider>
             <ThemedSection>
-                <span>Section with Theme Consumer</span>
-                <Checkbox toggleTheme={toggleTheme}/>
+                <span>Check the box to change the theme.</span>
+                <Checkbox/>
             </ThemedSection>
-            <section className="Section">Section without Theme Consumer</section>
-        </ThemeContext.Provider>
+        </ThemeProvider>
     );
-}
+};
 
 export default App;
