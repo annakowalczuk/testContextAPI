@@ -1,12 +1,13 @@
-import React, { useContext, useState } from 'react';
-import { ThemeContext } from '../theme-context';
+import React, { useState } from 'react';
+import { useThemeContext } from '../Theme/ThemeContext';
 
 const Checkbox = () => {
-    const { toggleTheme } = useContext(ThemeContext);
+    const { toggleTheme } = useThemeContext();
     const [checked, setChecked] = useState(false);
     const handleChange = () => {
         setChecked(!checked);
         toggleTheme();
+        console.log('theme toggled')
     };
 
     return (

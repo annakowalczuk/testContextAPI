@@ -7,3 +7,9 @@
     color: #ffffff;
     background: #222222;
 }
+
+.cappingInfo {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}

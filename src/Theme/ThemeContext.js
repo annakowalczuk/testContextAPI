@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 export const themes = {
     light: {
@@ -21,4 +21,14 @@ export const ThemeContext = React.createContext({
     theme: THEME_MODE.DARK, // default value
     toggleTheme: () => {
     },
+    setThemeLight: () => {
+    },
 });
+
+export const useThemeContext = () => {
+    const context = useContext(ThemeContext);
+    if (context === undefined) {
+        throw new Error('useThemeContext must be used within a ThemeProvider')
+    }
+    return context
+}

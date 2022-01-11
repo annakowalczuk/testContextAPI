@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { ThemeContext, themes } from '../theme-context';
+import React from 'react';
+import { themes, useThemeContext } from '../Theme/ThemeContext';
 import '../App.css';
 
 const ThemedSection = (props) => {
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useThemeContext();
 
     return (
         <section style={{
