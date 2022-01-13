@@ -12,10 +12,10 @@ const Checkbox = () => {
 
     return (
         <label>
+            Check the box to change the theme
             <input type="checkbox"
                    checked={checked}
                    onChange={handleChange}/>
-            checkbox
         </label>
     );
 };

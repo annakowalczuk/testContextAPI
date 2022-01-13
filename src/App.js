@@ -3,6 +3,7 @@ import ThemedSection from './ThemedSection/ThemedSection';
 import Checkbox from './Checkbox/Checkbox';
 import ThemeProvider from './Theme/ThemeProvider';
 import CappingController from './Theme/CappingController';
+import ThemeInfo from './ThemeInfo/ThemeInfo';
 
 const App = () => {
 
@@ -10,10 +11,10 @@ const App = () => {
         <ThemeProvider>
             <CappingController>
                 <ThemedSection>
-                    <span>Check the box to change the theme.</span>
                     <Checkbox/>
+                    <ThemeInfo/>
                 </ThemedSection>
-            </CappingController>s
+            </CappingController>
         </ThemeProvider>
     );
 };
